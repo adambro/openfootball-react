@@ -9,7 +9,6 @@ const Layout = (props) => (
   </div>
 );
 
-    // I use this syntax when my component fits on one line
     const ListItem = (props) => (
       <tr style={{border: "1px solid black"}}>
         <td>{props.item.play_at}</td>
@@ -20,7 +19,6 @@ const Layout = (props) => (
       </tr>
     );
 
-    // I use this when my component has no logic outside JSX
     const List = ({ items }) => (
         <table className="table">
           <tbody>
@@ -62,6 +60,7 @@ const Layout = (props) => (
         fetch(url).then((response) => {
             return response.json();
         }).then((data) => {
+            // TODO move outside object, but how to handle setState call?
             this.setState({matches: data.games});
         }).catch((err) => {
             throw new Error(err);
