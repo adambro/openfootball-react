@@ -28,8 +28,10 @@ const Layout = (props) => (
     );
 
     const MatchesList = (props) => (
-      <div>
-        <h2>{props.title}</h2>
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h2 className="panel-title">{props.title}</h2>
+        </div>
         <List items={props.items}/>
       </div>
     );
