@@ -1,0 +1,7 @@
+  web:
+    build: .
+    command: ruby ./server.rb
+    volumes:
+      - .:/myapp
+    ports:
+      - "9292:9292"
