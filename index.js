@@ -9,6 +9,7 @@ const Layout = (props) => (
   </div>
 );
 
+    // example of stateless component - it only handles props
     const ListItem = (props) => (
       <tr style={{border: "1px solid black"}}>
         <td>{props.item.play_at}</td>
@@ -36,6 +37,7 @@ const Layout = (props) => (
       </div>
     );
 
+    // this is full-blown component that handles state
     class MatchesBlock extends React.Component {
       constructor(props) {
         super(props);
@@ -69,6 +71,7 @@ const Layout = (props) => (
         });
       }
 
+      // without it matched do not reload on click, but I don't know why
       componentWillReceiveProps(nextProps) {
         const url = this.urlFromProps(nextProps);
         this.fetchData(url);
@@ -86,6 +89,7 @@ const Layout = (props) => (
       </ul>
     );
 
+// the router part is sketchy, I don't know how to compose components the right way
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={Layout}/>

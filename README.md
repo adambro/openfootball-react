@@ -3,6 +3,9 @@
 The website uses Sinatra (Ruby) JSON API from OpenFootball as a backend:
 https://github.com/sportkit/sport.db.starter.ruby
 
+React part is based on Pete Hunt starter:
+https://github.com/petehunt/react-webpack-template
+
 
 ## Setup
 
