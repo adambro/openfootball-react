@@ -20,3 +20,11 @@ To start application start Sinatra JSON API and React code compilation:
     npm start
 
 Then just do `open index.html` to view the page in the browser.
+
+
+## Architecture
+
+React app makes a distinction between [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.i28vgrepm)
+
+* Presentational Components - only handle props and are stateless functional components
+* Container Components - handle state, implemented as ES6 class with Block suffix
