@@ -5,3 +5,11 @@
       - .:/myapp
     ports:
       - "9292:9292"
+
+
+  npm:
+    image: node:5
+    command: npm start
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
