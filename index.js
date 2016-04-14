@@ -4,7 +4,7 @@ import { Router, Route, hashHistory, Link } from 'react-router'
 
 const Layout = (props) => (
   <div className="row container">
-    <Competitions/>
+    <CompetitionsBlock/>
     <div id="middle">{props.children}</div>
   </div>
 );
@@ -79,6 +79,45 @@ const Layout = (props) => (
 
       componentDidMount() {
         this.fetchData(this.url);
+      }
+    }
+
+    class CompetitionsBlock extends React.Component {
+      constructor(props) {
+        super(props);
+        this.url = "http://localhost:9292/events";
+        this.state = {seasons: [
+          {
+            "key": "en.2015/16",
+            "title": "English Premier League 2015/16"
+          },
+        ]};
+      }
+
+      componentDidMount() {
+        this.fetchData(this.url);
+      }
+
+      fetchData(url) {
+        console.log(url, 'Fetched URL');
+        fetch(url).then((response) => {
+            return response.json();
+        }).then((data) => {
+            // TODO move outside object, but how to handle setState call?
+            this.setState({seasons: data});
+        }).catch((err) => {
+            throw new Error(err);
+        });
+      }
+
+      render() {
+        return (
+          <div>
+            {this.state.seasons.filter(val => val.title.includes("Premier")).map(
+              season => <Link className="btn btn-default" to={"/matches/" + season.key.replace("/", "_")}>{season.title}</Link>
+            )}
+          </div>
+        );
       }
     }
 
